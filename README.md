@@ -1,31 +1,95 @@
 # rtmaps_python
-RTMaps External API Python Package
 
+> Python package providing external APIs for RTMaps runtime engine
 
-***
-WARNING : rtmaps pip package is not yet officially released !
-You need to use the test package available here :
+---
 
-'''
+## ⚠️ Important Notice
+
+**The `rtmaps` pip package is not yet officially released!**  
+Use the test package from TestPyPI until official release:
+
+```bash
 pip install -i https://test.pypi.org/simple/ rtmaps==0.0.2
-'''
-***
+```
 
+---
 
+## 📦 Quick Start
 
-Create python venv
-'''
-python -m venv .venv-rtmaps
-source .venv-rtmaps/Scripts/activate
-'''
+1. **Create Python virtual environment:**
+   ```bash
+   python -m venv .venv-rtmaps
+   source .venv-rtmaps/Scripts/activate  # On Windows: .venv-rtmaps\Scripts\activate
+   ```
 
-Install requierements
-'''
-pip install -i https://test.pypi.org/simple/ rtmaps==0.0.2
-pip install -r base_requierements.txt
-'''
+2. **Install base requirements:**
+   ```bash
+   pip install -i https://test.pypi.org/simple/ rtmaps==0.0.2
+   pip install -r base_requierements.txt
+   ```
 
-Install additional requierements for specific examples
-'''
-pip install -r *example_folder*/additionnal_requirements.txt
-'''
+3. **Install example-specific dependencies:**
+   ```bash
+   # For Web UI example
+   pip install -r examples/WebUI/additionnal_requirements.txt
+   
+   # For REST API example
+   pip install -r examples/REST/additionnal_requirements.txt
+   ```
+
+---
+
+## 📂 Project Structure
+
+```
+rtmaps_python/
+├── README.md                    # This file
+├── base_requierements.txt       # Core dependencies
+└── .gitignore                   # Git ignore rules
+
+examples/
+├── REST/                        # Typed REST API (port 8000)
+│   ├── README.md               # API documentation & endpoints
+│   └── rtmaps_typed_rest_api.py
+├── WebUI/                      # Web-based control panel (port 8080)
+│   ├── README.md               # UI documentation & controls
+│   ├── rtmaps_web_control_ui.py
+│   └── webui/                  # Static files (HTML, JS, CSS)
+```
+
+---
+
+## 🎛 Examples Overview
+
+### REST API (`examples/REST/`)
+
+Typed FastAPI backend for RTMaps runtime control.
+
+**Start it:**
+```bash
+cd examples/REST
+python rtmaps_typed_rest_api.py
+```
+
+Access: `http://localhost:8000`
+
+See [`README.md`](examples/REST/README.md) for API endpoints.
+
+---
+
+### Web UI (`examples/WebUI/`)
+
+HTML5/CSS3/JS control panel with live state monitoring.
+
+**Start it:**
+```bash
+cd examples/WebUI
+python rtmaps_web_control_ui.py
+```
+
+Access: `http://127.0.0.1:8080/webui/index.html`
+
+See [`README.md`](examples/WebUI/README.md) for controls and features.
+
+---
