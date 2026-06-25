@@ -10,7 +10,7 @@
 Use the test package from TestPyPI until official release:
 
 ```bash
-pip install -i https://test.pypi.org/simple/ rtmaps==0.0.2
+pip install -i https://test.pypi.org/simple/ rtmaps==0.0.4
 ```
 
 ---
