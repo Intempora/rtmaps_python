@@ -1,0 +1,39 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 40px;
+  background: #f4f6f8;
+}
+
+h1 {
+  color: #333;
+}
+
+section {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+button {
+  margin: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.state {
+  font-weight: bold;
+  padding: 10px;
+  display: inline-block;
+}
+
+.state.true { color: green; }
+.state.false { color: gray; }
+
+pre {
+  background: #111;
+  color: #0f0;
+  padding: 10px;
+  max-height: 200px;
+  overflow-y: auto;
+}

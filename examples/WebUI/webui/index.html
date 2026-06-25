@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>RTMaps Control Panel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>🎛 RTMaps Control Panel</h1>
+
+  <section>
+    <h2>Diagram</h2>
+    <input type="text" id="filename" placeholder="diagram.rtd">
+    <label>
+      <input type="checkbox" id="reset">
+      Reset
+    </label>
+    <button onclick="load_diagram()">📂 Load</button>
+  </section>
+
+  <section>
+    <h2>Command</h2>
+    <input type="text" id="command" placeholder="RandomImage ri">
+    <button onclick="parse()">Parse</button>
+  </section>
+
+  <section>
+    <h2>Control</h2>
+    <button onclick="run()">▶️ Run</button>
+    <button onclick="shutdown()">⏹️ Shutdown</button>
+  </section>
+
+  <section>
+    <h2>Diagram state</h2>
+    <div id="state" class="state false">UNKNOWN</div>
+  </section>
+
+  <section>
+    <h2>Logs</h2>
+    <pre id="log"></pre>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
