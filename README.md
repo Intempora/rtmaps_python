@@ -10,7 +10,7 @@
 Use the test package from TestPyPI until official release:
 
 ```bash
-pip install -i https://test.pypi.org/simple/ rtmaps==0.0.4
+pip install -i https://test.pypi.org/simple/ rtmaps==0.0.5
 ```
 
 ---
@@ -18,25 +18,25 @@ pip install -i https://test.pypi.org/simple/ rtmaps==0.0.4
 ## 📦 Quick Start
 
 1. **Create Python virtual environment:**
-   ```bash
-   python -m venv .venv-rtmaps
-   source .venv-rtmaps/Scripts/activate  # On Windows: .venv-rtmaps\Scripts\activate
-   ```
+```bash
+python -m venv .venv-rtmaps
+source .venv-rtmaps/Scripts/activate  # On Windows: .venv-rtmaps\Scripts\activate
+```
 
 2. **Install base requirements:**
-   ```bash
-   pip install -i https://test.pypi.org/simple/ rtmaps==0.0.2
-   pip install -r base_requierements.txt
-   ```
+```bash
+pip install -i https://test.pypi.org/simple/ rtmaps==0.0.2
+pip install -r base_requierements.txt
+```
 
 3. **Install example-specific dependencies:**
-   ```bash
-   # For Web UI example
-   pip install -r examples/WebUI/additionnal_requirements.txt
-   
-   # For REST API example
-   pip install -r examples/REST/additionnal_requirements.txt
-   ```
+```bash
+# For Web UI example
+pip install -r examples/WebUI/additionnal_requirements.txt
+
+# For REST API example
+pip install -r examples/REST/additionnal_requirements.txt
+```
 
 ---
 

@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from rtmaps import RTMapsAbstraction, RTMapsException
+from rtmaps import RTMapsWrapper, RTMapsException
 from schema import Schema, And, Use, Optional, SchemaError
 import uvicorn
 
@@ -42,7 +42,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-rtmaps = RTMapsAbstraction()
+rtmaps = RTMapsWrapper()
 
 @app.post("/diagram/loaddiagram", response_model=EmptyResponse)
 def load_diagram(payload: LoadDiagramRequest):

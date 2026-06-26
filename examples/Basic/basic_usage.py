@@ -1,8 +1,8 @@
 import time
-from rtmaps import RTMapsAbstraction 
+from rtmaps import RTMapsWrapper 
 
 # Bypass singleton by creating instance directly
-rtm = RTMapsAbstraction()
+rtm = RTMapsWrapper()
 
 # Add components from standard_components package
 rtm.add_component("Randint", "Randint_1")
@@ -13,19 +13,43 @@ rtm.connect_components("Randint_1", "outputInteger", "DataViewer_1", "input_0")
  
 # Set property on Randint
 rtm.set_property("Randint_1", "vectorSize", 4)
-rtm.set_property("Randint_1", "max", 100)
+# Randint will output data once per second
+rtm.set_property("Randint_1", "period", 1000000)
+rtm.set_property("Randint_1", "max", 100) 
+
+# Configure multiple properties at once
+# 
+# properties = {
+#     "vectorSize": 4,
+#    "period": 1000000, 
+#     "max": 100
+# }
+# 
+# for prop, value in properties.items():
+#     rtm.set_property("Randint_1", prop, value)
+
 
 # Run diagram
 print("Starting diagram...")
-rtm.run()
+try: 
+    rtm.run()
 
-# Read output from Randint_1
-status = rtm.read_int32("Randint_1", "outputInteger", True)
-if status is not None:
-    print(f"Randint_1 output: {status}")
-else:
-    print("Randint_1 output: None (timeout or no data)")
- 
-# Cleanup
-rtm.shutdown()
-print("diagram stopped.")
+    # Run RTMaps for 10 seconds
+    while rtm.get_current_time() <= 10000000 :  
+        # Read output from Randint_1
+        status = rtm.read_int32("Randint_1", "outputInteger", True)
+        if status is not None:
+            print(f"Randint_1 output: {status}")
+        else:
+            print("Randint_1 output: None (timeout or no data)")
+             
+        time.sleep(1)
+            
+    rtm.shutdown() 
+            
+except KeyboardInterrupt:
+    print("Exit/Keyboard interrupt occurred") 
+finally :
+    # Cleanup
+    rtm.shutdown()
+    print("RTMaps shutdown()")

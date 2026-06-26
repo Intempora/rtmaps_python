@@ -5,6 +5,9 @@
 `csv_to_mcap.py` is a Python script that saves .csv to .mcap using the RTMaps runtime API.  
 
 ## How to Use
+
+Place the folders of both rtmaps_csv.pck and rtmaps_mcap.pck in the local package folder.
+Or update the code line 25 to point toward your package folder.
  
 > `python csv_to_mcap.py CSV_INPUT_FOLDER MCAP_OUTPUT_FOLDER`
 

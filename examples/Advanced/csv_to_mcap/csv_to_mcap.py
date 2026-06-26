@@ -15,7 +15,7 @@ import datetime
 
 rtmaps_api_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "rtmaps")
 sys.path.insert(0, rtmaps_api_path)
-from rtmaps_old import RTMapsWrapper
+from rtmaps import RTMapsWrapper
 
 # =======================================
 # CONFIGURATION

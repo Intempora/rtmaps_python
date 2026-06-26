@@ -6,6 +6,12 @@ __pycache__/
 # C extensions
 *.so
 
+
+# RTMaps pck
+*.pck
+examples/Advanced/csv_to_mcap/packages/*
+
+
 # Distribution / packaging
 .Python
 build/
