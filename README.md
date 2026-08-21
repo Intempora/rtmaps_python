@@ -10,7 +10,7 @@
 Use the test package from TestPyPI until official release:
 
 ```bash
-pip install -i https://test.pypi.org/simple/ rtmaps==0.0.5
+pip install -i https://test.pypi.org/simple/ rtmaps==0.0.8
 ```
 
 ---
@@ -25,7 +25,7 @@ source .venv-rtmaps/Scripts/activate  # On Windows: .venv-rtmaps\Scripts\activat
 
 2. **Install base requirements:**
 ```bash
-pip install -i https://test.pypi.org/simple/ rtmaps==0.0.2
+pip install -i https://test.pypi.org/simple/ rtmaps==0.0.8
 pip install -r base_requierements.txt
 ```
 
