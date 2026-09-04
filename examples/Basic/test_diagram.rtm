@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RTMapsDiagram xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Components>
+    <Component name="Randint_1" type="Randint">
+      <Properties>
+        <Property name="vectorSize" value="4"/>
+        <Property name="period" value="1000000"/>
+        <Property name="max" value="100"/>
+      </Properties>
+    </Component>
+    <Component name="DataViewer_1" type="DataViewer">
+      <Properties>
+        <Property name="vectorSize" value="4"/>
+      </Properties>
+    </Component>
+  </Components>
+  
+  <Connections>
+    <Connection source="Randint_1" sourcePort="outputInteger" target="DataViewer_1" targetPort="input_0"/>
+  </Connections>
+</RTMapsDiagram>

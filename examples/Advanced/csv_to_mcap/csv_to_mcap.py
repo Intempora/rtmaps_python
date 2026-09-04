@@ -80,10 +80,8 @@ def createDiagram(maps):
     rtmaps.parse("AdvancedCsvImporter " + importer_name)
     rtmaps.parse(importer_name + ".separator = <<Comma (,)>>")
     rtmaps.parse(importer_name + ".timestamp_unit = <<Seconds>>")
-    #rtmaps.parse(importer_name + ".replay_mode = <<Immediate>>") 
-
-    #AdvancedCsvImporter_1.separator = <<Semicolon (;)>>
-
+    #rtmaps.parse(importer_name + ".replay_mode = <<Immediate>>")  
+    #AdvancedCsvImporter_1.separator = <<Semicolon (;)>> 
 
 def configureMCAPExporter(maps): 
     # Place components
@@ -182,7 +180,7 @@ if __name__ == "__main__":
 
                 while diagramIsRunning(rtmaps): 
                     time.sleep(0.5)
-                    eof = rtmaps.read_int64_timeout(importer_name + ".eof", 100)
+                    eof = rtmaps.read_int64(importer_name + ".eof", False)
 
                     if eof is not None :
                         end_ts = rtmaps.get_current_time()

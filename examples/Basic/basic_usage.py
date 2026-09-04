@@ -1,21 +1,24 @@
 import time
 from rtmaps import RTMapsWrapper 
 
-# Bypass singleton by creating instance directly
+# Create RTMapsWrapper
 rtm = RTMapsWrapper()
 
 # Add components from standard_components package
 rtm.add_component("Randint", "Randint_1")
-rtm.add_component("DataViewer", "DataViewer_1") 
+rtm.add_component("DataViewer", "DataViewer_1")  
 
 # Connect: Randint outputInteger -> DataViewer input_0
 rtm.connect_components("Randint_1", "outputInteger", "DataViewer_1", "input_0")
  
 # Set property on Randint
 rtm.set_property("Randint_1", "vectorSize", 4)
+
 # Randint will output data once per second
 rtm.set_property("Randint_1", "period", 1000000)
 rtm.set_property("Randint_1", "max", 100) 
+
+rtm.write_rtm_script("C:/Users/teolo/Documents/GitHub/rtmaps_python/examples/Basic/basic_usage.rtm")
 
 # Configure multiple properties at once
 # 
@@ -35,7 +38,7 @@ try:
     rtm.run()
 
     # Run RTMaps for 10 seconds
-    while rtm.get_current_time() <= 10000000 :  
+    while rtm.get_current_time() <= 5000000 :  
         # Read output from Randint_1
         status = rtm.read_int32("Randint_1", "outputInteger", True)
         if status is not None:
@@ -43,7 +46,7 @@ try:
         else:
             print("Randint_1 output: None (timeout or no data)")
              
-        time.sleep(1)
+        time.sleep(0.5)
             
     rtm.shutdown() 
             
