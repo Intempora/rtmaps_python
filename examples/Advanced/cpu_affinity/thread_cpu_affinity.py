@@ -7,14 +7,16 @@ from rtmaps import RTMapsWrapper
 
 import threading
 
-def setCPUAffinity(component:str, targetedCore=0):
+def prepareCPUAffinity(component:str):
     # Add comps to fetch threadIDs  
     print("Adding monitoring components")
     p2o_name = "Prop2Output_" + component
     rtm.add_component("PropertyToOutput", p2o_name)
     rtm.set_property(p2o_name, "property_0_name", component + ".primaryThreadID") 
     
+def setCPUAffinity(component:str, targetedCore=0):
     # Get thread IDS 
+    p2o_name = "Prop2Output_" + component
     randint_id = rtm.read_int32(p2o_name, "output_0_primaryThreadID", True)
     print(component + " : Thread ID [" + str(randint_id) + "]")  
     
@@ -65,11 +67,15 @@ def RunRTMapsDiagram(rtm:RTMapsWrapper):
     try: 
 
         # CPU affinity
-        setCPUAffinity("Randint_1", targetedCore=0)
-        setCPUAffinity("DataViewer_1", targetedCore=2)  
+        prepareCPUAffinity("Randint_1")
+        prepareCPUAffinity("DataViewer_1")  
         
         rtm.run()   
  
+        # CPU affinity
+        setCPUAffinity("Randint_1", targetedCore=0)
+        setCPUAffinity("DataViewer_1", targetedCore=2)  
+        
         # Run RTMaps for 10 seconds
         while rtm.get_current_time() <= 5000000 :  
             # Read output from Randint_1
